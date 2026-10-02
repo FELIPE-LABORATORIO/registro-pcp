@@ -1,0 +1,21 @@
+REGISTRO PCP - versão 1.0
+==========================
+
+O que é cada arquivo
+- index.html .......... o app (não precisa mexer)
+- listas.js ........... as listas de produtos, matérias-primas e sugestões (é aqui que você edita)
+- sw.js ............... faz o app abrir sem internet (não mexer)
+- manifest.webmanifest  nome e ícone do app na tela inicial (não mexer)
+- xlsx.mini.min.js .... gerador de Excel (não mexer)
+- icon-192.png, icon-512.png, apple-touch-icon.png ... ícones
+
+Como mudar uma lista (pelo próprio site do GitHub)
+1. Abra o repositório, clique em listas.js e depois no lápis (Edit).
+2. Um item por linha. Produtos: CÓDIGO ; DESCRIÇÃO ; PESO EM GRAMAS.
+3. Clique em "Commit changes". Em 1 a 2 minutos o site atualiza,
+   e o app de cada celular se atualiza na próxima vez que abrir com internet.
+
+O Excel gerado
+- Abas DESCARTE, REPROCESSO e SOBREPESO, uma linha por registro.
+- A coluna ID é única por registro: no Power Query, use "Remover duplicatas"
+  pela coluna ID, para o caso de o mesmo arquivo ser salvo duas vezes na pasta.
