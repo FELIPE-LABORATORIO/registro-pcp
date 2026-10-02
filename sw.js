@@ -1,7 +1,7 @@
 /* Faz o app abrir sem internet.
    - Página e listas: tenta buscar a versão nova; sem sinal, usa a guardada.
    - Demais arquivos: usa a cópia guardada no celular. */
-var CACHE = 'registro-pcp-v1';
+var CACHE = 'registro-pcp-v2';
 var ARQUIVOS = [
   './',
   './index.html',

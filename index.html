@@ -75,34 +75,28 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* Abas */
 .abas{
   position:sticky;top:0;z-index:5;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:4px;
-  padding:10px 12px 0;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  padding:10px 12px;
   background:var(--inox);
   border-bottom:1.5px solid var(--grafite);
 }
 .abas button{
-  position:relative;
-  min-height:46px;
-  border:1.5px solid transparent;
-  border-bottom:0;
-  border-radius:6px 6px 0 0;
-  background:transparent;
-  font-size:16px;font-weight:600;
-  color:var(--cinza);
-  cursor:pointer;
-  margin-bottom:-1.5px;
-}
-.abas button[aria-selected="true"]{
+  min-height:42px;
+  border:1.5px solid var(--borda-campo);
+  border-radius:6px;
   background:var(--etiqueta);
-  border-color:var(--grafite);
+  font-size:16px;font-weight:600;
   color:var(--grafite);
+  cursor:pointer;
 }
+.abas button[aria-selected="true"]{background:var(--grafite);border-color:var(--grafite);color:#fff}
 .badge{
-  display:inline-block;min-width:22px;padding:0 6px;margin-left:4px;
+  display:inline-block;min-width:22px;padding:0 6px;margin-left:5px;
   border-radius:11px;background:var(--azul);color:#fff;
   font-size:14px;line-height:22px;font-variant-numeric:tabular-nums;
 }
+.abas button[aria-selected="true"] .badge{background:#fff;color:var(--grafite)}
 .badge:empty{display:none}
 
 /* Painéis (etiquetas) */
@@ -291,6 +285,60 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
 .toast.ok{background:var(--verde)}
 .toast.erro{background:var(--vermelho)}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
+/* Painel */
+.periodo{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.periodo button{
+  min-height:44px;border:1.5px solid var(--borda-campo);border-radius:6px;
+  background:#fff;font-size:16px;font-weight:600;cursor:pointer;
+}
+.periodo button[aria-pressed="true"]{background:var(--azul);border-color:var(--azul);color:#fff}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.kpi{border:1.5px solid var(--linha);border-radius:6px;padding:8px 10px;min-width:0}
+.kpi strong{display:block;font-size:28px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:14px;color:var(--cinza)}
+.kpi.alerta strong{color:var(--vermelho)}
+.subtitulo{font-size:15px;font-weight:600;margin:16px 0 8px}
+.barras{list-style:none;margin:0;padding:0}
+.barras li{margin-bottom:9px}
+.barra-rot{display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.barra-rot span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.barra-rot span:last-child{flex:none;font-variant-numeric:tabular-nums;font-weight:600}
+.barra{height:10px;background:var(--inox);border-radius:5px;overflow:hidden;margin-top:3px}
+.barra i{display:block;height:100%;background:var(--grafite);border-radius:5px}
+.dias{display:flex;align-items:flex-end;gap:3px;height:90px;border-bottom:1.5px solid var(--grafite)}
+.dias div{flex:1;background:var(--azul);border-radius:3px 3px 0 0;min-height:2px}
+.dias div.zero{background:var(--linha)}
+.dias-rot{display:flex;gap:3px;font-size:11px;color:var(--cinza);margin-top:3px}
+.dias-rot span{flex:1;text-align:center;font-variant-numeric:tabular-nums}
+.custos-linhas{list-style:none;margin:0;padding:0}
+.custos-linhas li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--linha)}
+.custos-linhas li:first-child{border-top:0;padding-top:0}
+.custos-linhas small{display:block;color:var(--cinza);font-size:13px}
+.custos-linhas strong{flex:none;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.custos-linhas strong.sem{font-size:16px;font-weight:600;color:var(--cinza)}
+.nota{margin:12px 0 0;padding:10px 12px;border-radius:6px;background:var(--inox);font-size:15px}
+.nota .link{display:inline;padding:0;margin-left:4px}
+.prod-sob{list-style:none;margin:0;padding:0}
+.prod-sob li{padding:9px 0;border-top:1px solid var(--linha)}
+.prod-sob li:first-child{border-top:0}
+.prod-sob .reg-sec{margin-top:2px}
+.prod-sob .neg{color:var(--vermelho);font-weight:600}
+.vazio-painel{margin:0;color:var(--cinza);font-size:15px}
+
+/* Cadastro */
+.cad-resumo{margin:0 0 4px;font-size:16px}
+.cad-resumo strong{font-variant-numeric:tabular-nums}
+.botoes-cad{display:grid;gap:10px;margin-top:12px}
+.botao-arquivo{display:flex;align-items:center;justify-content:center;text-align:center}
+.cad-lista{list-style:none;margin:0;padding:0 14px 8px}
+.cad-lista li{display:grid;grid-template-columns:1fr 118px;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--linha)}
+.cad-lista li[hidden]{display:none}
+.cad-cod{font-weight:700;font-variant-numeric:tabular-nums;margin-right:6px}
+.cad-desc{font-size:15px}
+.cad-peso{display:block;color:var(--cinza);font-size:13px}
+.cad-lista input{min-height:46px;text-align:right;font-variant-numeric:tabular-nums}
+.cad-lista label{display:block}
+.zona-perigo{margin:16px 12px 0;text-align:center}
 .versao{margin:18px 12px 0;color:var(--cinza);font-size:13px;text-align:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
@@ -307,11 +355,13 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
 <div class="tela">
   <div id="avisos"></div>
 
-  <nav class="abas" role="tablist" aria-label="Tipo de registro">
+  <nav class="abas" role="tablist" aria-label="Seções do app">
     <button type="button" role="tab" id="tab-descarte" aria-controls="aba-descarte" aria-selected="true" data-aba="descarte">Descarte</button>
     <button type="button" role="tab" id="tab-reprocesso" aria-controls="aba-reprocesso" aria-selected="false" data-aba="reprocesso">Reprocesso</button>
     <button type="button" role="tab" id="tab-sobrepeso" aria-controls="aba-sobrepeso" aria-selected="false" data-aba="sobrepeso">Sobrepeso</button>
     <button type="button" role="tab" id="tab-enviar" aria-controls="aba-enviar" aria-selected="false" data-aba="enviar">Enviar<span class="badge" id="badgePendentes"></span></button>
+    <button type="button" role="tab" id="tab-painel" aria-controls="aba-painel" aria-selected="false" data-aba="painel">Painel</button>
+    <button type="button" role="tab" id="tab-cadastro" aria-controls="aba-cadastro" aria-selected="false" data-aba="cadastro">Cadastro</button>
   </nav>
 
   <main>
@@ -471,7 +521,50 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
         <h3 class="lista-titulo">Enviados nos últimos 15 dias</h3>
         <ul class="registros" id="listaEnviados"></ul>
       </div>
-      <p class="versao">Registro PCP, versão 1.0</p>
+      <p class="versao">Registro PCP, versão 1.1</p>
+    </section>
+
+    <!-- PAINEL -->
+    <section class="aba" id="aba-painel" role="tabpanel" aria-labelledby="tab-painel" hidden>
+      <div class="painel">
+        <h2 class="faixa">Painel</h2>
+        <div class="corpo">
+          <div class="periodo" role="group" aria-label="Período">
+            <button type="button" data-periodo="1" aria-pressed="true">Hoje</button>
+            <button type="button" data-periodo="7" aria-pressed="false">7 dias</button>
+            <button type="button" data-periodo="15" aria-pressed="false">15 dias</button>
+          </div>
+          <p class="ajuda">Mostra o que foi registrado neste celular: o que ainda não foi enviado e o que foi enviado nos últimos 15 dias.</p>
+        </div>
+      </div>
+      <div id="painelConteudo"></div>
+    </section>
+
+    <!-- CADASTRO -->
+    <section class="aba" id="aba-cadastro" role="tabpanel" aria-labelledby="tab-cadastro" hidden>
+      <div class="painel">
+        <h2 class="faixa">Custos por kg</h2>
+        <div class="corpo">
+          <p class="cad-resumo" id="cadResumo"></p>
+          <p class="ajuda" style="margin-top:4px">Os custos ficam salvos só neste aparelho. Não vão para o GitHub nem para o Excel enviado ao lançamento.</p>
+          <div class="botoes-cad">
+            <button type="button" class="secundario" id="btnExportarCustos">Baixar planilha de custos</button>
+            <label class="secundario botao-arquivo" for="arqCustos">Importar planilha de custos</label>
+            <input type="file" id="arqCustos" accept=".xlsx,.xls,.csv" hidden>
+          </div>
+          <p class="ajuda">Para preencher tudo de uma vez: baixe a planilha, coloque o custo por kg no Excel e importe de volta.</p>
+        </div>
+      </div>
+      <div class="painel">
+        <div class="corpo">
+          <label for="cadBusca">Procurar produto</label>
+          <input type="search" id="cadBusca" autocomplete="off" placeholder="Código ou nome">
+        </div>
+        <ul class="cad-lista" id="cadLista"></ul>
+      </div>
+      <div class="zona-perigo">
+        <button type="button" class="link reg-excluir" id="btnLimparCustos">Apagar todos os custos deste aparelho</button>
+      </div>
     </section>
   </main>
 </div>
@@ -528,6 +621,7 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
   var CHAVE_CFG = 'pcp.config.v1';
   var CHAVE_SUG = 'pcp.sugestoes.v1';
   var CHAVE_DICA = 'pcp.dicaInstalar.v1';
+  var CHAVE_CUSTOS = 'pcp.custos.v1';
   var DIAS_HISTORICO = 15;
   var NUM_PESAGENS = 10;
 
@@ -665,6 +759,7 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
   var registros = carregar(CHAVE_REG, []);
   var config = carregar(CHAVE_CFG, null);
   var sugestoes = carregar(CHAVE_SUG, {});
+  var custos = carregar(CHAVE_CUSTOS, {});
   ['motivoDescarte', 'motivoReprocesso', 'origem', 'equipamento'].forEach(function (k) {
     if (!sugestoes[k]) sugestoes[k] = {};
   });
@@ -917,6 +1012,8 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
     });
     if (aba === 'enviar') renderEnviar();
     if (aba === 'sobrepeso') horarioAtual();
+    if (aba === 'painel') renderPainel();
+    if (aba === 'cadastro') renderCadastro();
     $('#toast').className = 'toast';
     window.scrollTo(0, 0);
   }
@@ -1298,7 +1395,13 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
       aviso('O gerador de Excel não carregou. Abra o app com internet uma vez e tente de novo.', 'erro');
       return Promise.resolve('erro');
     }
-    var wb = montarPlanilha(regs);
+    return entregarWorkbook(montarPlanilha(regs), nome);
+  }
+  function entregarWorkbook(wb, nome) {
+    if (typeof XLSX === 'undefined') {
+      aviso('O gerador de Excel não carregou. Abra o app com internet uma vez e tente de novo.', 'erro');
+      return Promise.resolve('erro');
+    }
     var dados = XLSX.write(wb, { bookType: 'xlsx', type: 'array', compression: true });
     var tipoMime = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     var blob = new Blob([dados], { type: tipoMime });
@@ -1402,6 +1505,282 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
   });
 
   /* ---------------------------------------------------------------
+     Custos (ficam só no aparelho)
+     --------------------------------------------------------------- */
+  function custoDe(codigo) {
+    var v = codigo ? custos[codigo] : null;
+    return (typeof v === 'number' && v > 0) ? v : null;
+  }
+  function reais(v, casas) {
+    casas = casas == null ? 2 : casas;
+    return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: casas, maximumFractionDigits: casas });
+  }
+  function totalComCusto() {
+    return TODOS.filter(function (p) { return custoDe(p.codigo); }).length;
+  }
+
+  /* ---------------------------------------------------------------
+     Painel
+     --------------------------------------------------------------- */
+  var periodoPainel = 1;
+  function isoMenosDias(iso, dias) {
+    var p = iso.split('-').map(Number);
+    var d = new Date(p[0], p[1] - 1, p[2] - dias);
+    return d.getFullYear() + '-' + dois(d.getMonth() + 1) + '-' + dois(d.getDate());
+  }
+  function somar(mapa, chave, valor) { mapa[chave] = (mapa[chave] || 0) + valor; }
+  function ordenarMapa(mapa) {
+    return Object.keys(mapa).map(function (k) { return { rotulo: k, valor: mapa[k] }; })
+      .sort(function (a, b) { return b.valor - a.valor; });
+  }
+  function resumoPainel(dias) {
+    var hoje = hojeISO();
+    var limite = isoMenosDias(hoje, dias - 1);
+    var regs = registros.filter(function (r) { return r.data >= limite; });
+    var diasLista = [];
+    for (var i = dias - 1; i >= 0; i--) diasLista.push(isoMenosDias(hoje, i));
+
+    function volume(tipo) {
+      var res = { n: 0, kg: 0, custo: 0, kgComCusto: 0, kgSemCusto: 0, motivos: {}, produtos: {}, origens: {}, porDia: {} };
+      regs.filter(function (r) { return r.tipo === tipo; }).forEach(function (r) {
+        res.n++; res.kg += r.volume;
+        somar(res.motivos, r.motivo || 'Sem motivo', r.volume);
+        somar(res.produtos, (r.codigo ? r.codigo + ' ' : '') + r.produto, r.volume);
+        if (r.origem) somar(res.origens, r.origem, r.volume);
+        somar(res.porDia, r.data, r.volume);
+        var c = custoDe(r.codigo);
+        if (c) { res.custo += r.volume * c; res.kgComCusto += r.volume; } else res.kgSemCusto += r.volume;
+      });
+      return res;
+    }
+    var sob = { n: 0, comPeso: 0, somaG: 0, somaPct: 0, abaixo: 0, produtos: {}, somaRsPacote: 0, nRs: 0 };
+    regs.filter(function (r) { return r.tipo === 'sobrepeso'; }).forEach(function (r) {
+      sob.n++;
+      var p = sob.produtos[r.codigo] || (sob.produtos[r.codigo] = { codigo: r.codigo, produto: r.produto, n: 0, nPeso: 0, somaG: 0, somaPct: 0, abaixo: 0, somaRs: 0, nRs: 0 });
+      p.n++;
+      if (!r.nominal) return;
+      var g = r.media - r.nominal;
+      var pct = g / r.nominal;
+      sob.comPeso++; sob.somaG += g; sob.somaPct += pct;
+      p.nPeso++; p.somaG += g; p.somaPct += pct;
+      if (g < 0) { sob.abaixo++; p.abaixo++; }
+      var c = custoDe(r.codigo);
+      if (c) { var rs = g / 1000 * c; sob.somaRsPacote += rs; sob.nRs++; p.somaRs += rs; p.nRs++; }
+    });
+    return { dias: diasLista, descarte: volume('descarte'), reprocesso: volume('reprocesso'), sobrepeso: sob };
+  }
+  function barrasHTML(itens, unidade, limite) {
+    var lista = itens.slice(0, limite || 5);
+    var max = lista.length ? lista[0].valor : 0;
+    return '<ul class="barras">' + lista.map(function (it) {
+      var pct = max > 0 ? Math.max(2, Math.round(it.valor / max * 100)) : 0;
+      return '<li><div class="barra-rot"><span>' + escapar(it.rotulo) + '</span><span>' + fmt(it.valor, 1) + ' ' + unidade + '</span></div>' +
+        '<div class="barra"><i style="width:' + pct + '%"></i></div></li>';
+    }).join('') + '</ul>';
+  }
+  function diasHTML(porDia, dias) {
+    var vals = dias.map(function (d) { return porDia[d] || 0; });
+    var max = Math.max.apply(null, vals.concat([0]));
+    return '<div class="dias" aria-hidden="true">' + vals.map(function (v, i) {
+      var h = max > 0 ? Math.max(2, Math.round(v / max * 100)) : 2;
+      return '<div class="' + (v ? '' : 'zero') + '" style="height:' + h + '%" title="' + dataBR(dias[i]) + ': ' + fmt(v, 1) + ' kg"></div>';
+    }).join('') + '</div><div class="dias-rot" aria-hidden="true">' + dias.map(function (d) {
+      return '<span>' + d.slice(8) + '</span>';
+    }).join('') + '</div>';
+  }
+  function cartaoVolume(titulo, res, dias, tipo) {
+    var html = '<div class="painel"><h2 class="faixa">' + titulo + '</h2><div class="corpo">';
+    if (!res.n) return html + '<p class="vazio-painel">Nenhum registro no período.</p></div></div>';
+    html += '<div class="kpis"><div class="kpi"><strong>' + fmt(res.kg, 1) + '</strong><span>kg no período</span></div>' +
+      '<div class="kpi"><strong>' + res.n + '</strong><span>' + (res.n === 1 ? 'registro' : 'registros') + '</span></div></div>';
+    if (dias.length > 1) html += '<p class="subtitulo">Por dia (kg)</p>' + diasHTML(res.porDia, dias);
+    html += '<p class="subtitulo">Principais motivos</p>' + barrasHTML(ordenarMapa(res.motivos), 'kg');
+    if (tipo === 'reprocesso' && Object.keys(res.origens).length) html += '<p class="subtitulo">Principais origens</p>' + barrasHTML(ordenarMapa(res.origens), 'kg');
+    html += '<p class="subtitulo">Principais produtos</p>' + barrasHTML(ordenarMapa(res.produtos), 'kg');
+    return html + '</div></div>';
+  }
+  function cartaoSobrepeso(sob) {
+    var html = '<div class="painel"><h2 class="faixa">Sobrepeso</h2><div class="corpo">';
+    if (!sob.n) return html + '<p class="vazio-painel">Nenhuma amostra no período.</p></div></div>';
+    var mediaG = sob.comPeso ? sob.somaG / sob.comPeso : null;
+    var mediaPct = sob.comPeso ? sob.somaPct / sob.comPeso : null;
+    html += '<div class="kpis">' +
+      '<div class="kpi' + (mediaG != null && mediaG < 0 ? ' alerta' : '') + '"><strong>' + (mediaPct == null ? '—' : comSinal(mediaPct * 100, 1) + '%') + '</strong><span>sobrepeso médio' + (mediaG == null ? '' : ' (' + comSinal(mediaG, 1) + ' g)') + '</span></div>' +
+      '<div class="kpi"><strong>' + sob.n + '</strong><span>' + (sob.n === 1 ? 'amostra' : 'amostras') + '</span></div>' +
+      '<div class="kpi' + (sob.abaixo ? ' alerta' : '') + '"><strong>' + sob.abaixo + '</strong><span>com média abaixo do peso</span></div>' +
+      '<div class="kpi"><strong>' + (sob.n - sob.comPeso) + '</strong><span>sem peso de embalagem</span></div></div>';
+    var prods = Object.keys(sob.produtos).map(function (k) { return sob.produtos[k]; })
+      .sort(function (a, b) {
+        var pa = a.nPeso ? a.somaPct / a.nPeso : -Infinity, pb = b.nPeso ? b.somaPct / b.nPeso : -Infinity;
+        return pb - pa;
+      });
+    html += '<p class="subtitulo">Por produto</p><ul class="prod-sob">' + prods.map(function (p) {
+      var linha;
+      if (p.nPeso) {
+        var g = p.somaG / p.nPeso, pct = p.somaPct / p.nPeso;
+        linha = '<span class="' + (g < 0 ? 'neg' : '') + '">' + comSinal(pct * 100, 1) + '% (' + comSinal(g, 1) + ' g)</span>' +
+          (p.nRs ? ', ' + reais(p.somaRs / p.nRs, 3) + ' por pacote' : '');
+      } else linha = 'sem peso de embalagem cadastrado';
+      return '<li><span class="reg-principal">' + escapar(p.codigo + ' ' + p.produto) + '</span>' +
+        '<span class="reg-sec">' + p.n + (p.n === 1 ? ' amostra' : ' amostras') + ', ' + linha + '</span></li>';
+    }).join('') + '</ul>';
+    return html + '</div></div>';
+  }
+  function cartaoCustos(res) {
+    var html = '<div class="painel"><h2 class="faixa">Custos do período</h2><div class="corpo">';
+    var algumCusto = totalComCusto() > 0;
+    function linha(titulo, explica, valor) {
+      return '<li><span>' + titulo + '<small>' + explica + '</small></span>' +
+        (valor == null ? '<strong class="sem">sem custo</strong>' : '<strong>' + valor + '</strong>') + '</li>';
+    }
+    var d = res.descarte, r = res.reprocesso, s = res.sobrepeso;
+    html += '<ul class="custos-linhas">' +
+      linha('Perda com descarte', fmt(d.kg, 1) + ' kg descartados', (algumCusto && d.kgComCusto) ? reais(d.custo) : null) +
+      linha('Valor em reprocesso', 'material que voltou ao processo, não é perda total', (algumCusto && r.kgComCusto) ? reais(r.custo) : null) +
+      linha('Sobrepeso por pacote', 'média do valor dado a mais em cada pacote', (algumCusto && s.nRs) ? reais(s.somaRsPacote / s.nRs, 3) : null) +
+      '</ul>';
+    if (!algumCusto) {
+      html += '<p class="nota">Os custos ainda não foram cadastrados. Quando você preencher o custo por kg, os valores aparecem aqui.' +
+        '<button type="button" class="link" data-ir="cadastro">Abrir Cadastro</button></p>';
+    } else {
+      var semKg = d.kgSemCusto + r.kgSemCusto;
+      if (semKg > 0) html += '<p class="nota">' + fmt(semKg, 1) + ' kg do período são de itens sem custo cadastrado e ficaram fora da conta.' +
+        '<button type="button" class="link" data-ir="cadastro">Completar custos</button></p>';
+    }
+    return html + '</div></div>';
+  }
+  function renderPainel() {
+    Array.prototype.forEach.call(document.querySelectorAll('.periodo button'), function (b) {
+      b.setAttribute('aria-pressed', Number(b.getAttribute('data-periodo')) === periodoPainel ? 'true' : 'false');
+    });
+    var res = resumoPainel(periodoPainel);
+    $('#painelConteudo').innerHTML = cartaoCustos(res) +
+      cartaoVolume('Descarte', res.descarte, res.dias, 'descarte') +
+      cartaoVolume('Reprocesso', res.reprocesso, res.dias, 'reprocesso') +
+      cartaoSobrepeso(res.sobrepeso);
+  }
+  $('.periodo').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-periodo]');
+    if (!b) return;
+    periodoPainel = Number(b.getAttribute('data-periodo'));
+    renderPainel();
+  });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-ir]');
+    if (b) irPara(b.getAttribute('data-ir'));
+  });
+
+  /* ---------------------------------------------------------------
+     Cadastro de custos
+     --------------------------------------------------------------- */
+  var cadastroMontado = false;
+  function atualizarResumoCadastro() {
+    $('#cadResumo').innerHTML = '<strong>' + totalComCusto() + ' de ' + TODOS.length + '</strong> itens com custo cadastrado.';
+  }
+  function renderCadastro() {
+    atualizarResumoCadastro();
+    if (cadastroMontado) {
+      Array.prototype.forEach.call(document.querySelectorAll('#cadLista input'), function (el) {
+        var c = custoDe(el.getAttribute('data-cod'));
+        el.value = c ? fmt(c, 2) : '';
+      });
+      return;
+    }
+    cadastroMontado = true;
+    $('#cadLista').innerHTML = TODOS.map(function (p) {
+      var c = custoDe(p.codigo);
+      var idc = 'custo-' + p.codigo;
+      return '<li data-busca="' + escapar(p.busca) + '"><label for="' + idc + '"><span class="cad-cod">' + escapar(p.codigo) + '</span>' +
+        '<span class="cad-desc">' + escapar(p.descricao) + '</span>' +
+        '<span class="cad-peso">' + escapar(p.grupo) + '</span></label>' +
+        '<input type="text" inputmode="decimal" autocomplete="off" id="' + idc + '" data-cod="' + escapar(p.codigo) + '" placeholder="R$/kg" value="' + (c ? fmt(c, 2) : '') + '"></li>';
+    }).join('');
+  }
+  $('#cadLista').addEventListener('change', function (e) {
+    var el = e.target.closest('input[data-cod]');
+    if (!el) return;
+    var cod = el.getAttribute('data-cod');
+    var txt = el.value.trim();
+    if (!txt) { delete custos[cod]; }
+    else {
+      var v = lerNumero(txt.replace(/^R\$\s*/i, ''));
+      if (!(v > 0)) { el.classList.add('erro'); aviso('Digite o custo por kg em reais, maior que zero (ex.: 14,90).', 'erro'); return; }
+      custos[cod] = Math.round(v * 10000) / 10000;
+      el.value = fmt(custos[cod], 2);
+    }
+    el.classList.remove('erro');
+    guardar(CHAVE_CUSTOS, custos);
+    atualizarResumoCadastro();
+    aviso(txt ? 'Custo salvo.' : 'Custo apagado.', 'ok');
+  });
+  $('#cadBusca').addEventListener('input', function () {
+    var q = semAcento(this.value).trim();
+    var palavras = q ? q.split(/\s+/) : [];
+    Array.prototype.forEach.call(document.querySelectorAll('#cadLista li'), function (li) {
+      var b = li.getAttribute('data-busca');
+      li.hidden = !palavras.every(function (w) { return b.indexOf(w) >= 0 || b.indexOf(w.replace(/^0+/, '')) >= 0; });
+    });
+  });
+  $('#btnExportarCustos').addEventListener('click', function () {
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, folha(
+      ['Código', 'Produto', 'Grupo', 'Custo (R$/kg)'],
+      TODOS.map(function (p) { return [p.codigo, p.descricao, p.grupo, celulaNum(custoDe(p.codigo), '#,##0.00')]; }),
+      [9, 60, 34, 14]
+    ), 'CUSTOS');
+    entregarWorkbook(wb, 'PCP_custos_' + hojeISO() + '.xlsx');
+  });
+  $('#arqCustos').addEventListener('change', function () {
+    var arq = this.files && this.files[0];
+    this.value = '';
+    if (!arq) return;
+    var leitor = new FileReader();
+    leitor.onload = function () {
+      try {
+        var wb = XLSX.read(new Uint8Array(leitor.result), { type: 'array' });
+        var ws = wb.Sheets[wb.SheetNames[0]];
+        var linhas = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: '' });
+        var iCab = -1, cCod = -1, cCusto = -1;
+        for (var i = 0; i < Math.min(linhas.length, 10) && iCab < 0; i++) {
+          linhas[i].forEach(function (cel, j) {
+            var t = semAcento(cel);
+            if (cCod < 0 && /^COD/.test(t)) cCod = j;
+            if (cCusto < 0 && /(CUSTO|VALOR|R\$)/.test(t)) cCusto = j;
+          });
+          if (cCod >= 0 && cCusto >= 0) iCab = i; else { cCod = -1; cCusto = -1; }
+        }
+        if (iCab < 0) { aviso('Não achei as colunas "Código" e "Custo" na primeira aba da planilha.', 'erro'); return; }
+        var validos = {}; TODOS.forEach(function (p) { validos[p.codigo] = true; });
+        var ok = 0, fora = 0;
+        for (var k = iCab + 1; k < linhas.length; k++) {
+          var cod = pad5(String(linhas[k][cCod]).trim());
+          var bruto = linhas[k][cCusto];
+          if (!cod || bruto === '' || bruto == null) continue;
+          var v = typeof bruto === 'number' ? bruto : lerNumero(String(bruto).replace(/^R\$\s*/i, ''));
+          if (!(v > 0)) continue;
+          if (!validos[cod]) { fora++; continue; }
+          custos[cod] = Math.round(v * 10000) / 10000; ok++;
+        }
+        guardar(CHAVE_CUSTOS, custos);
+        renderCadastro();
+        aviso(ok + (ok === 1 ? ' custo importado' : ' custos importados') + (fora ? '. ' + fora + ' código(s) não estão na lista do app.' : '.'), ok ? 'ok' : 'erro');
+      } catch (err) {
+        aviso('Não consegui ler esse arquivo. Use a planilha baixada pelo app, em .xlsx.', 'erro');
+      }
+    };
+    leitor.readAsArrayBuffer(arq);
+  });
+  $('#btnLimparCustos').addEventListener('click', async function () {
+    if (!totalComCusto()) { aviso('Não há custos cadastrados neste aparelho.'); return; }
+    var ok = await confirmar('Apagar todos os custos deste aparelho? Os registros não são afetados.', 'Apagar custos', true);
+    if (!ok) return;
+    custos = {};
+    guardar(CHAVE_CUSTOS, custos);
+    renderCadastro();
+    aviso('Custos apagados.');
+  });
+
+  /* ---------------------------------------------------------------
      Avisos de internet e de instalação
      --------------------------------------------------------------- */
   function instalado() {
@@ -1470,7 +1849,8 @@ dialog .botoes{display:grid;gap:10px;margin-top:16px}
     lerNumero: lerNumero, paraGramas: paraGramas, pad5: pad5, estatisticas: estatisticas,
     montarPlanilha: montarPlanilha, nomeArquivo: nomeArquivo,
     produtos: function () { return PRODUTOS; }, materias: function () { return MATERIAS; },
-    registros: function () { return registros; }
+    registros: function () { return registros; },
+    resumoPainel: resumoPainel, custos: function () { return custos; }
   };
 })();
 </script>
